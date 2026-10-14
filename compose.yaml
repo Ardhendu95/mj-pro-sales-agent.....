@@ -1,0 +1,18 @@
+services:
+  database:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-demo-local-only}
+      POSTGRES_DB: mjpro_demo
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - mjpro_demo_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U demo -d mjpro_demo"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  mjpro_demo_data:

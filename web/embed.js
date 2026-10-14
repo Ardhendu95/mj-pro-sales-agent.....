@@ -1,0 +1,1 @@
+(()=>{const script=document.currentScript;const base=new URL(script.src).origin;const frame=document.createElement('iframe');frame.src=base+'/widget';frame.title='mjPROConnect sales assistant';frame.style.cssText='width:100%;height:760px;border:0;border-radius:12px;';script.insertAdjacentElement('afterend',frame);})();
